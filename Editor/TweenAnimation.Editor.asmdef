@@ -1,0 +1,18 @@
+{
+    "name": "TweenAnimation.Editor",
+    "rootNamespace": "SudStack.TweenAnimation.Editor",
+    "references": [
+        "TweenAnimation.Runtime"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

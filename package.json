@@ -1,0 +1,11 @@
+{
+  "name": "com.sudstack.tweenanimation",
+  "version": "0.0.1",
+  "displayName": "Tween Animation",
+  "description": "Tween Animation is a high-performance, modular animation engine for Unity that is incredibly easy to use. Powered by direct PlayerLoop Injection and a strict Zero-GC architecture, it completely bypasses the overhead of traditional MonoBehaviours and Coroutines. This ensures buttery-smooth frame rates with absolutely no memory spikes or garbage collection lag during gameplay. Its highly modular design allows developers to effortlessly configure, swap, and manage performant animations while maintaining maximum engine efficiency.",
+  "unity": "2021.3",
+  "author": {
+    "name": "sudstack",
+    "url": "https://github.com/sudstack"
+  }
+}
