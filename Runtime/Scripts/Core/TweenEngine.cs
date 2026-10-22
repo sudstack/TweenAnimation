@@ -3,6 +3,9 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.LowLevel;
 using UnityEngine.PlayerLoop;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 namespace SS.TweenAnimations
 {
@@ -41,9 +44,32 @@ namespace SS.TweenAnimations
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
         private static void Initialize()
         {
-            _activeCount = 0;
+            ClearAllTweens();
             _nextLogicID = 0;
             InjectIntoPlayerLoop();
+        }
+
+#if UNITY_EDITOR
+        [InitializeOnLoadMethod]
+        private static void SubscribeToEditorEvents()
+        {
+            EditorApplication.playModeStateChanged -= OnPlayModeStateChanged;
+            EditorApplication.playModeStateChanged += OnPlayModeStateChanged;
+        }
+
+        private static void OnPlayModeStateChanged(PlayModeStateChange state)
+        {
+            if (state == PlayModeStateChange.ExitingPlayMode)
+            {
+                ClearAllTweens();
+            }
+        }
+#endif
+
+        public static void ClearAllTweens()
+        {
+            Array.Clear(_activeTweens, 0, _activeCount);
+            _activeCount = 0;
         }
 
         /// <summary>

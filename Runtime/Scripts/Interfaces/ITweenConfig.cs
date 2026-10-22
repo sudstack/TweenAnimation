@@ -27,5 +27,11 @@ namespace SS.TweenAnimations
         /// Pushes the generated struct into the TweenEngine's PlayerLoop array.
         /// </summary>
         void Play(ITweenListener listener = null);
+
+        /// <summary>
+        /// Instantly halts any active animation associated with this configuration's TargetObject.
+        /// Triggers the engine's O(1) Swap-and-Pop memory removal to maintain Zero-GC compliance.
+        /// </summary>
+        void Stop();
     }
 }

@@ -82,6 +82,17 @@ namespace SS.TweenAnimations
         }
 
         /// <summary>
+        /// Instantly halts any active animation associated with this configuration's TargetObject.
+        /// Triggers the engine's O(1) Swap-and-Pop memory removal to maintain Zero-GC compliance.
+        /// </summary>
+        public void Stop()
+        {
+            if (target == null) return;
+
+            TweenEngine.Stop(target.transform);
+        }
+
+        /// <summary>
         /// Contract for child classes to map their specific inspector values into the engine's state struct.
         /// </summary>
         protected abstract void ApplyCustomValues(ref TweenState state);
